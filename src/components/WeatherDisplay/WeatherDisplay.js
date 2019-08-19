@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import './WeatherDisplay.css';
 
 export default class WeatherDisplay extends Component {
   constructor() {
