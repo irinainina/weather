@@ -9,7 +9,7 @@ export default class WeatherDisplay extends Component {
     const name = this.props.name;
     const URL = "https://api.openweathermap.org/data/2.5/weather?q=" +
       name +
-      "&appid=b1b35bba8b434a28a0be2a3e1071ae5b";
+      "&lang=ru&units=metric&appid=b1b35bba8b434a28a0be2a3e1071ae5b";
     fetch(URL).then(res => res.json()).then(json => {
       this.setState({ weatherData: json });
     });
@@ -27,10 +27,10 @@ export default class WeatherDisplay extends Component {
           {weather.main} in {weatherData.name}
           <img src={iconUrl} alt={weatherData.description} />
         </h1>
-        <p>Current: {(weatherData.main.temp - 273.15).toFixed(2)}°С</p>
-        <p>High: {(weatherData.main.temp_max - 273.15).toFixed(2)}°С</p>
-        <p>Low: {(weatherData.main.temp_min - 273.15).toFixed(2)}°С</p>
-        <p>Wind Speed: {weatherData.wind.speed} mi/hr</p>
+        <p>Current: {weatherData.main.temp}°С</p>
+        <p>High: {weatherData.main.temp_max}°С</p>
+        <p>Low: {weatherData.main.temp_min}°С</p>
+        <p>Wind Speed: {weatherData.wind.speed} м/с</p>
       </div>
     );
   }
