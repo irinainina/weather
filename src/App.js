@@ -5,12 +5,9 @@ import WeatherDisplay from './components/WeatherDisplay/WeatherDisplay';
 const PLACES = ["London", "Moscow", "Kiev", "Minsk"];
 
 export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activePlace: 0,
-    };
-  }
+  state = {
+    activePlace: 0,
+  };
   
   render() {
     const activePlace = this.state.activePlace;
@@ -22,8 +19,7 @@ export default class App extends Component {
             key={index}
             onClick={() => {
               this.setState({ activePlace: index });
-            }}
-          >
+            }} >
               {place}
           </button>
         ))}
@@ -34,4 +30,3 @@ export default class App extends Component {
       </div>
     );
   }
-}
